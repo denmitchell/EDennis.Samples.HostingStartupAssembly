@@ -4,9 +4,8 @@ using System.Text;
 
 namespace Company.HostingStartupLibrary
 {
-    public interface IInjectedTime
+    public class InjectedTimeOptions
     {
-        string Format { get; }
-        DateTime Now { get; }
+        public string Format { get; }
     }
 }
