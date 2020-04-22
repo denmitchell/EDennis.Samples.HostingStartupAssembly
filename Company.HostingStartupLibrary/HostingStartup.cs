@@ -12,8 +12,16 @@ namespace Company.HostingStartupLibrary
         public void Configure(IWebHostBuilder builder)
         {
             builder.ConfigureServices((context, services) => {
+                
+                //services.Configure for DI'd options
                 var options = context.Configuration.GetSection("InjectedTimeOptions");
                 services.Configure<InjectedTimeOptions>(options);
+
+                //check ConfigurationSection.Bind for non-DI'd options
+                //var ito = new InjectedTimeOptions();
+                //options.Bind(ito);
+
+                //configure singleton
                 services.AddSingleton<IInjectedTime,InjectedTime>();
             });            
         }
