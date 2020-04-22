@@ -3,11 +3,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 
+
+//SETTING TO USE IWebHostBuilder FROM THIS EXTERNAL STARTUP
 [assembly: HostingStartup(typeof(Company.HostingStartupLibrary.HostingStartup))]
 
 namespace Company.HostingStartupLibrary
 {
-    public class HostingStartup : IHostingStartup
+    public class HostingStartup : IHostingStartup //REQUIRED INTERFACE
     {
         public void Configure(IWebHostBuilder builder)
         {

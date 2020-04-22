@@ -24,6 +24,7 @@ namespace BlazorApp
 
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    //SETTING TO USE IWebHostBuilder FROM AN EXTERNAL STARTUP
                     webBuilder.UseSetting(
                         WebHostDefaults.HostingStartupAssembliesKey,
                                         "Company.HostingStartupLibrary");
