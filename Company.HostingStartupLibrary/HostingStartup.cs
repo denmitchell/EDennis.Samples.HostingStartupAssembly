@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 
 [assembly: HostingStartup(typeof(Company.HostingStartupLibrary.HostingStartup))]
 
@@ -10,9 +12,10 @@ namespace Company.HostingStartupLibrary
         public void Configure(IWebHostBuilder builder)
         {
             builder.ConfigureServices((context, services) => {
-                services.Configure<InjectedTimeOptions>(context.Configuration.GetSection("InjectedTimeOptions"));
-                services.AddSingleton<IInjectedTime, InjectedTime>();            
-            });
+                var options = context.Configuration.GetSection("InjectedTimeOptions");
+                services.Configure<InjectedTimeOptions>(options);
+                services.AddSingleton<IInjectedTime,InjectedTime>();
+            });            
         }
     }
 }

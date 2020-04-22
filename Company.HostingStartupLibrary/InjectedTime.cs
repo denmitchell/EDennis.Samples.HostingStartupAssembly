@@ -7,9 +7,9 @@ namespace Company.HostingStartupLibrary
 {
     public class InjectedTime : IInjectedTime
     {
-        public InjectedTime(IOptions<InjectedTimeOptions> options)
+        public InjectedTime(IOptionsMonitor<InjectedTimeOptions> options)
         {
-            Format = options.Value.Format;
+            Format = options.CurrentValue.Format;
         }
 
         public string Format { get; }
